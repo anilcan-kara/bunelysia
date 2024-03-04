@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  bunelysia:
+    image: oven/bun:latest
+    env_file: ./.env
+    container_name: bunelysia-${ENV}
+    hostname: bunelysia-${ENV}
+    network_mode: 'bridge'
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/home/bun/app
+    ports:
+      - 3000:3000
+    command: sh
+# docker compose run --rm -i -t bunelysia sh

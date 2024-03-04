@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "type": "bashdb",
+      "request": "launch",
+      "name": "Bash-Debug (hardcoded script name)",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/dev.sh",
+      "args": []
+    },
+    {
+      "name": "Docker Node.js Launch",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run: debug",
+      "platform": "node"
+    }
+  ]
+}
