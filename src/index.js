@@ -116,8 +116,12 @@ const app = new Elysia({
             .get(
               '',
               ({ params, db }) => {
+                const movieId = Number(params.id);
+                if (isNaN(movieId)) {
+                  throw new Error('Invalid movieId');
+                }
                 return db.episode.findMany({
-                  where: { movieId: params.id },
+                  where: { movieId },
                 });
               },
               { detail: { tags: ['title', 'episodes'] } }
