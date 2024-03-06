@@ -1,7 +1,11 @@
 version: '3.9'
 services:
   bunelysia:
-    image: imbios/bun-node:latest-20-alpine
+    # image: imbios/bun-node:latest-20-alpine
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: bunelysia
     env_file: ./.env
     container_name: bunelysia-${ENV}
     hostname: bunelysia-${ENV}
@@ -13,5 +17,7 @@ services:
       - .:/home/bun/app
     ports:
       - 3000:3000
+      - 6499:6499
     command: sh
+    working_dir: /home/bun/app
 # docker compose run --rm -i -t bunelysia sh

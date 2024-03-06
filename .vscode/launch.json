@@ -29,10 +29,10 @@
       "internalConsoleOptions": "neverOpen",
       "request": "attach",
       "name": "Attach Bun",
-      "url": "ws://localhost:9229/",
-      "stopOnEntry": false,
-      "preLaunchTask": "docker compose run",
-      "postDebugTask": "docker compose remove"
+      "url": "ws://localhost:6499/",
+      "stopOnEntry": false
+      // "preLaunchTask": "docker compose run",
+      // "postDebugTask": "docker compose remove"
     }
   ]
 }

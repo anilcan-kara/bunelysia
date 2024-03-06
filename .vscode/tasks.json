@@ -4,7 +4,7 @@
     {
       "label": "docker compose run",
       "type": "shell",
-      "command": "docker compose run --rm -i -t -d --name bunelysia-dev -p 3000:3000 -p 9229:9229 bunelysia bun run dev",
+      "command": "docker compose run --rm -i -t -d --name bunelysia -p 3000:3000 -p 9229:9229 bunelysia bun run dev",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -13,7 +13,7 @@
     {
       "label": "docker compose remove",
       "type": "shell",
-      "command": "docker rm -f bunelysia-dev",
+      "command": "docker rm -f bunelysia",
       "group": {
         "kind": "build",
         "isDefault": true
