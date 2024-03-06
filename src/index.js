@@ -9,24 +9,18 @@ const info = {
   version: '1.2.0',
 };
 
-const setup = (app) => app.decorate('db', new PrismaClient());
+const database = (app) => app.decorate('db', new PrismaClient());
 
-const app = new Elysia({
-  websocket: {
-    idleTimeout: 30,
-  },
-})
+const app = new Elysia({ websocket: { idleTimeout: 30 } })
   .use(ip())
   .ws('/ws', {
-    body: t.Object({
-      message: t.String(),
-    }),
+    body: t.Object({ message: t.String() }),
     message(ws, message) {
       ws.send({ message, time: Date.now() });
     },
   })
   .use(swagger({ path: '/api-reference', documentation: { info } }))
-  .use(setup)
+  .use(database)
   .group('/search', (app) => {
     return app
       .get('', ({ query, db }) => db.movie.findMany(), {

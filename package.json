@@ -1,13 +1,7 @@
 {
   "name": "bunelysia",
   "version": "1.0.28",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --hot --inspect src/index.js"
-  },
-  "prisma": {
-    "seed": "node prisma/scripts/seed.js"
-  },
+  "module": "src/index.js",
   "dependencies": {
     "@elysiajs/swagger": "latest",
     "@prisma/client": "latest",
@@ -15,8 +9,11 @@
     "elysia-ip": "^0.0.7",
     "prisma": "latest"
   },
-  "devDependencies": {
-    "bun-types": "latest"
+  "prisma": {
+    "seed": "node prisma/scripts/seed.js"
   },
-  "module": "src/index.js"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --hot --inspect src/index.js"
+  }
 }
