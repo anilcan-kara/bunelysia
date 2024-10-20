@@ -1,11 +1,7 @@
 version: '3.9'
 services:
   bunelysia:
-    # image: imbios/bun-node:latest-20-alpine
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
-    image: bunelysia
+    image: nozich/bunode
     env_file: ./.env
     container_name: bunelysia-${ENV}
     hostname: bunelysia-${ENV}
@@ -14,6 +10,7 @@ services:
     tty: true
     stdin_open: true
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - .:/home/bun/app
     ports:
       - 3000:3000
